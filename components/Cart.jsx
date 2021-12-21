@@ -7,7 +7,8 @@ function Cart({ imgAdd, countryName, population, capital, region }) {
   return (
     <>
       <div className="hover:shadow-lg hover:scale-[1.05] ease-in-out duration-300 cursor-pointer rounded overflow-hidden shadow">
-        <div className="w-[15rem] overflow-hidden  ">
+        {/* <div className="w-[15rem] overflow-hidden  "> */}
+        <div className="w-[18rem]   lg:w-[15rem] overflow-hidden  ">
           <img
             className=" w-[100%] h-[100%]"
             // src="https://flagcdn.com/pe.svg"

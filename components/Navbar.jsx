@@ -5,7 +5,8 @@ import { MoonIcon } from "@heroicons/react/outline";
 function Navbar() {
   return (
     <>
-      <div className=" flex  shadow justify-between px-14 py-5 mb-8 ">
+      {/* <div className=" flex  shadow justify-between  px-14 py-5 mb-8 "> */}
+      <div className=" flex  shadow justify-between px-8  md:px-14 py-5 mb-8 ">
         <div className=" text-base md:text-xl font-bold">
           Where in the world?
         </div>

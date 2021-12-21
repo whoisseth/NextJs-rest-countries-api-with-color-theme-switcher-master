@@ -7,7 +7,8 @@ function Countries({ apiData }) {
   const [countriesData, setCountries] = useState(data);
   return (
     <>
-      <div className="  px-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center gap-16 ">
+      <div className=" px-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center gap-16 border-4 ">
+        {/* <div className=" px-10 md:px-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center gap-16 "> */}
         {countriesData.map((data) => (
           <Cart
             key={data.area}
