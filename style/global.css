@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+    html {
+        @apply font-Nunito
+    }
+}
+
+
+/* html {
+    /* font-family: 'Nunito Sans', sans-serif; */
+
+
+/*   font-family: 'Nunito Sans', sans-serif;
+}  */
+
+
+/* theme: {
+    extend: {
+        fontFamily: {
+            Rampart: ["Rampart One", "cursive"],
+        }
+        ,
+    }
+    ,
+}
+
+, */
