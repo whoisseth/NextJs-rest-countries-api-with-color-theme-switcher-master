@@ -1,17 +1,15 @@
 import Cart from "./Cart";
 import React, { useState } from "react";
 
-function Countries({ apiData }) {
+function Countries({ apiData, countries }) {
   // console.log(apiData.allData);
-  let data = apiData.allData;
-  const [countriesData, setCountries] = useState(data);
+
   return (
     <>
       <div className=" px-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center gap-16  ">
-        {/* <div className=" px-10 md:px-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center gap-16 "> */}
-        {countriesData.map((data) => (
+        {countries.map((data) => (
           <Cart
-            key={data.area}
+            key={data.name}
             imgAdd={data.flags.png}
             countryName={data.name}
             population={data.population}

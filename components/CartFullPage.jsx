@@ -1,13 +1,18 @@
-import React from "react";
 import Image from "next/image";
 import { ArrowLeftIcon } from "@heroicons/react/outline";
+import { data } from "autoprefixer";
+import React, { useState } from "react";
 
 const TextGray = " text-gray-500 font-semibold";
 const FontSemibold = "font-semibold ";
 const CartImg = ({ src, width, quality }) => {
   return `https://flagcdn.com/${src}?w=${width}&q=${quality || 75}`;
 };
-function CartFullPage(props) {
+function CartFullPage({ apiData }) {
+  // console.log(apiData.allData);
+  // let CartData = apiData.allData;
+  // const [data, setCountries] = useState(CartData);
+  // console.log(data.nativeName);
   return (
     <>
       <button>
@@ -34,38 +39,46 @@ function CartFullPage(props) {
             <div className=" flex flex-col gap-2  ml-auo">
               <div>
                 <span className={FontSemibold}>Native Name</span>
-                <span className={TextGray}>: Belgie</span>
+                {/* <span className={TextGray}>: Belgie</span> */}
+                <span className={TextGray}>: {data.nativeName}</span>
               </div>
               <div>
                 <span className={FontSemibold}>Population</span>
-                <span className={TextGray}>: 81,770,900</span>
+                {/* <span className={TextGray}>: 81,770,900</span> */}
+                <span className={TextGray}>: {data.population}</span>
               </div>
               <div>
                 <span className={FontSemibold}>Region</span>
-                <span className={TextGray}>: Europe</span>
+                {/* <span className={TextGray}>: Europe</span> */}
+                <span className={TextGray}>: {data.region}</span>
               </div>
               <div>
                 <span className={FontSemibold}>Sub Region</span>
-                <span className={TextGray}>: Western Europe</span>
+                {/* <span className={TextGray}>: Western Europe</span> */}
+                <span className={TextGray}>: {data.subregion}</span>
               </div>
               <div>
                 <span className={FontSemibold}>Capital</span>
-                <span className={TextGray}>: Brussels</span>
+                {/* <span className={TextGray}>: Brussels</span> */}
+                <span className={TextGray}>: {data.captital}</span>
               </div>
             </div>
             {/* left div */}
             <div className="  ml-auto block">
               <div>
                 <span className={FontSemibold}>Top Level Doamin</span>
-                <span className={TextGray}>: be</span>
+                {/* <span className={TextGray}>: be</span> */}
+                <span className={TextGray}>: {data.topLevelDomain}</span>
               </div>
               <div>
                 <span className={FontSemibold}>Currencies</span>
-                <span className={TextGray}>: Euro</span>
+                {/* <span className={TextGray}>: Euro</span> */}
+                <span className={TextGray}>: {data.currencies}</span>
               </div>
               <div>
                 <span className={FontSemibold}>Languages</span>
-                <span className={TextGray}>: Dutch, French, German </span>
+                {/* <span className={TextGray}>: Dutch, French, German </span> */}
+                <span className={TextGray}>: {data.languages} </span>
               </div>
             </div>
             {/* 👈 end */}

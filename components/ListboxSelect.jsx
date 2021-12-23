@@ -7,7 +7,7 @@ import {
 } from "@heroicons/react/solid";
 
 const people = [
-  //   { name: "Filter by Region" },
+  { name: "Filter by Region" },
   { name: "Asia" },
   { name: "Africa" },
   { name: "America" },
