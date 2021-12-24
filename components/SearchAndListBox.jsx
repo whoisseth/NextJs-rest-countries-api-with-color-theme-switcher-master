@@ -2,7 +2,7 @@ import React from "react";
 import { SearchIcon, ChevronDownIcon } from "@heroicons/react/outline";
 import ListboxSelect from "./ListboxSelect";
 
-function SearchAndListBox({ apiData, search }) {
+function SearchAndListBox({ search }) {
   // console.log(apiData);
   return (
     <>
