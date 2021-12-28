@@ -1,5 +1,5 @@
 import Head from "next/head";
-import CartFullPage from "../components/CartFullPage";
+import CartFullPage from "./countries/[name]";
 import Countries from "../components/Countries";
 import Navbar from "../components/Navbar";
 import SearchAndListBox from "../components/SearchAndListBox";
@@ -29,14 +29,15 @@ export default function Home({ data }) {
           rel="stylesheet"
         />
       </Head>
-      <div className="">
+      <div className=" dark:bg-gray-400">
         <Navbar />
         <SearchAndListBox
           apiData={data}
           search={(e) => setSearchField(e.target.value)}
           searchByRegion={(e) => setSearchByRegion(e.target.value)}
         />
-        <Countries apiData={data} countries={filterCountries} />
+        <Countries countries={filterCountries} />
+        {/* <CartFullPage /> */}
       </div>
     </div>
   );
