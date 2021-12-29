@@ -88,21 +88,21 @@ export default function CartFullPage({ data }) {
                 </span>
               </div>
               <div>
-                <span className={FontSemibold}> Languages </span>
+                {/* <span className={FontSemibold}> Languages </span> */}
                 {/* <span className={TextGray}>: Dutch, French, German </span> */}
-                <span className={TextGray}>: {data.languages} </span>
+                {/* <span className={TextGray}>: {data.languages} </span> */}
               </div>
             </div>
             {/* 👈 end */}
           </div>
-          <div className="mt-14 flex gap-3">
+          {/* <div className="mt-14 flex gap-3">
             <span className={FontSemibold}> Border Countries: </span>{" "}
             <div className="flex gap-2 ">
               <span className="shadow px-4 py-[.2rem] text-gray-500 font-semibold">
                 Netherlands
               </span>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
