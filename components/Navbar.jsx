@@ -7,18 +7,17 @@ function Navbar() {
   const { theme, setTheme } = useTheme();
   return (
     <>
-      <div className=" dark:bg-red-500  flex  shadow justify-between px-8  md:px-14 py-5 mb-8   ">
+      <div className=" dark:bg-red-500  flex  shadow justify-between px-8  md:px-14 py-5 mb-8 items-center  ">
         <Link href={"/"}>
           <a>
-            <div className=" text-base md:text-xl font-bold ">
+            <div className="  text-md md:text-xl font-bold  border-2">
               Where in the world?
             </div>
           </a>
         </Link>
         <div
-          className="flex items-center gap-1 cursor-pointer px-4 py-2 rounded hover:bg-gray-200"
+          className="flex items-center gap-1 cursor-pointer px-4 py-2 rounded hover:bg-gray-200 border-2"
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-          // onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
         >
           <MoonIcon className=" w-[1.2rem]  " />
           <span className=" text-base md:text-lg text-black font-semibold ">
