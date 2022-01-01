@@ -7,29 +7,14 @@ function Cart({ imgAdd, countryName, population, capital, region }) {
   return (
     <>
       <div className="hover:shadow-lg hover:scale-[1.05] ease-in-out duration-300 cursor-pointer rounded overflow-hidden shadow">
-        {/* <div className="w-[15rem] overflow-hidden  "> */}
         <div className="w-[18rem]   lg:w-[15rem] overflow-hidden  ">
-          <img
-            className=" w-[100%] h-[100%]"
-            // src="https://flagcdn.com/pe.svg"
-            // src="https://flagcdn.com/w320/pe.png"
-            src={imgAdd}
-          />
-          {/* <Image
-            src="https://flagcdn.com/pe.svg"
-            // src="https://flagcdn.com/w320/pe.png"
-            height="100%"
-            width="100%"
-            layout="responsive"
-            objectFit="contain"
-          /> */}
+          <img className=" w-[100%] h-[100%]" src={imgAdd} />
         </div>
         <div className="pt-5 pl-5 pb-8">
           <div className="font-bold mb-4"> {countryName}</div>
           <div className="flex flex-col gap-1 text-sm">
             <div>
               <span className={FontSemibold}>Population</span>
-              {/* <span className={TextGray}>: 81,770,900 {population}</span> */}
               <span className={TextGray}>: {population}</span>
             </div>
             <div>
