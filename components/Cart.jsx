@@ -7,7 +7,7 @@ function Cart({ imgAdd, countryName, population, capital, region }) {
   return (
     <>
       <div className=" hover:scale-[1.05] ease-in-out duration-300 cursor-pointer rounded overflow-hidden shadow-xl">
-        <div className="w-[15rem]  h-[10.5rem]  overflow-hidden   ">
+        <div className="w-[18rem] md:w-[15rem] h-[10.5rem]  overflow-hidden   ">
           <img className=" w-[100%] h-[100%]" src={imgAdd} />
         </div>
         <div className="pt-5 pl-5 pb-8">
