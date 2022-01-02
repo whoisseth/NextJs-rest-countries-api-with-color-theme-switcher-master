@@ -1,11 +1,12 @@
 import React from "react";
 import Image from "next/image";
-
+// hello
 const TextGray = " text-gray-500 font-semibold";
 const FontSemibold = "font-semibold ";
 function Cart({ imgAdd, countryName, population, capital, region }) {
   return (
     <>
+    {/* <div> */}
       <div className=" hover:scale-[1.05] ease-in-out duration-300 cursor-pointer rounded overflow-hidden shadow-xl">
         <div className="w-[18rem] md:w-[15rem] h-[10.5rem]  overflow-hidden   ">
           <img className=" w-[100%] h-[100%]" src={imgAdd} />

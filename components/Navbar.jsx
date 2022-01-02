@@ -16,7 +16,7 @@ function Navbar() {
           </a>
         </Link>
         <div
-          className="flex items-center gap-1 cursor-pointer px-4 py-2 rounded hover:bg-gray-400 font-semibold text-base md:text-lg"
+          className="flex items-center gap-1 cursor-pointer px-4 py-2 rounded hover:text-gray-600 font-semibold text-base md:text-lg"
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
         >
           <MoonIcon className=" w-[1.2rem]  " />
