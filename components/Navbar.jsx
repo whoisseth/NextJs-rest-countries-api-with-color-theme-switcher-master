@@ -7,7 +7,7 @@ function Navbar() {
   const { theme, setTheme } = useTheme();
   return (
     <>
-      <div className=" dark:bg-red-500  flex  shadow justify-between px-8  md:px-14 py-5 mb-8 items-center  ">
+      <div className="   flex  shadow-xl justify-between px-8  md:px-14 py-5 mb-8 items-center  ">
         <Link href={"/"}>
           <a>
             <div className="  text-md md:text-xl font-bold  ">
@@ -16,13 +16,13 @@ function Navbar() {
           </a>
         </Link>
         <div
-          className="flex items-center gap-1 cursor-pointer px-4 py-2 rounded hover:bg-gray-200 "
+          className="flex items-center gap-1 cursor-pointer px-4 py-2 rounded hover:bg-gray-400 font-semibold text-base md:text-lg"
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
         >
           <MoonIcon className=" w-[1.2rem]  " />
-          <span className=" text-base md:text-lg text-black font-semibold ">
-            Dark Mode
-          </span>
+          {/* <span className=" text-base md:text-lg text-black font-semibold "> */}
+          Dark Mode
+          {/* </span> */}
         </div>
       </div>
     </>
