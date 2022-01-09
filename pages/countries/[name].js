@@ -27,13 +27,15 @@ export default function CartFullPage({ data }) {
           rel="stylesheet"
         />
       </Head>
-      {/* <Navbar /> */}
-      <button onClick={() => router.back()}>
-        <div className="ml-14 mt-8 px-6  py-1 inline-block rounded shadow font-semibold  hover:shadow-xl">
-          <ArrowLeftIcon className="w-4 h-4  inline-block mr-2 " />
-          <span className="text-gray-600"> Back </span>
-        </div>
-      </button>
+      {/* <button onClick={() => router.back()}> */}
+      <div
+        onClick={() => router.back()}
+        className="ml-14 mt-8 px-6  py-1 inline-block rounded shadow font-semibold  hover:shadow-xl"
+      >
+        <ArrowLeftIcon className="w-4 h-4  inline-block mr-2 " />
+        <span className="text-gray-600"> Back </span>
+      </div>
+      {/* </button> */}
 
       <div className="  mt-16 grid-cols-1 lg:flex gap-24 mx-14 ">
         <div className="mb-8 ">
