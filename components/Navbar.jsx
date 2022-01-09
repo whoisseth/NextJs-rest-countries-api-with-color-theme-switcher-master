@@ -20,9 +20,7 @@ function Navbar() {
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
         >
           <MoonIcon className=" w-[1.2rem]  " />
-          {/* <span className=" text-base md:text-lg text-black font-semibold "> */}
           Dark Mode
-          {/* </span> */}
         </div>
       </div>
     </>

@@ -1,4 +1,3 @@
-// import Cart from "./Cart";
 import Link from "next/link";
 import useInView from "react-cool-inview";
 import dynamic from "next/dynamic";

@@ -7,12 +7,10 @@ import React, { useState } from "react";
 import { getCountryDataByName } from "../api/api";
 import { useRouter } from "next/router";
 import Navbar from "../../components/Navbar";
-// import { data } from "autoprefixer";
 const TextGray = " text-gray-500 font-semibold";
 const FontSemibold = "font-semibold  ";
 const CartImg = ({ src, width, quality }) => {
   return `https://flagcdn.com/${src}.svg?w=${width}&q=${quality || 75}`;
-  // return `https://flagcdn.com/${src}.png?w=${wid``th}&q=${quality || 75}`;
 };
 
 export default function CartFullPage({ data }) {
@@ -29,13 +27,14 @@ export default function CartFullPage({ data }) {
           rel="stylesheet"
         />
       </Head>
-      <Navbar />
+      {/* <Navbar /> */}
       <button onClick={() => router.back()}>
         <div className="ml-14 mt-8 px-6  py-1 inline-block rounded shadow font-semibold  hover:shadow-xl">
           <ArrowLeftIcon className="w-4 h-4  inline-block mr-2 " />
           <span className="text-gray-600"> Back </span>
         </div>
       </button>
+
       <div className="  mt-16 grid-cols-1 lg:flex gap-24 mx-14 ">
         <div className="mb-8 ">
           <Image
@@ -47,11 +46,9 @@ export default function CartFullPage({ data }) {
             height={320}
           />
         </div>
-        {/* Right div */}
         <div className="  ">
           <h1 className="font-bold text-3xl "> {data.name} </h1>
           <div className="grid grid-cols-1 md:grid-cols-2  md:flex md:mt-5 md:gap-20   ">
-            {/* left div */}
             <div className=" flex flex-col gap-2  ml-auo mt-8 md:mt-0">
               <div>
                 <span className={FontSemibold}> Native Name </span>
@@ -76,7 +73,6 @@ export default function CartFullPage({ data }) {
                 <span className={TextGray}>: {data.capital} </span>
               </div>
             </div>
-            {/* left div */}
             <div className="flex mt-2 md:mt-0 flex-col gap-2  ml-auo ">
               <div>
                 <span className={FontSemibold}> Top Level Doamin </span>
@@ -99,19 +95,7 @@ export default function CartFullPage({ data }) {
                 </span>
               </div>
             </div>
-            {/* 👈 end */}
           </div>
-          {/* <div className="mt-14 flex gap-3">
-            <span className={FontSemibold}> Border Countries: </span>
-            <div className="flex gap-2 ">
-              {data.map((country) => (
-                <span className="shadow px-4 py-[.2rem] text-gray-500 font-semibold">
-                  Netherlands
-                  {country.borders}
-                </span>
-              ))}
-            </div>
-          </div> */}
         </div>
       </div>
       <Link href="https://github.com/whoisseth/NextJs-rest-countries-api-with-color-theme-switcher-master">
@@ -124,7 +108,6 @@ export default function CartFullPage({ data }) {
 }
 
 export async function getServerSideProps({ params }) {
-  // const data = await getCountryDataByName(params.name);
   const data = await getCountryDataByName(params.name);
   return {
     props: {

@@ -1,26 +1,25 @@
 import Head from "next/head";
-import CartFullPage from "./countries/[name]";
 import Countries from "../components/Countries";
 import Navbar from "../components/Navbar";
-import SearchAndListBox from "../components/SearchAndListBox";
+import SearchBox from "../components/SearchBox";
 import { getCurateData } from "./api/api";
 import React, { useState } from "react";
 
 export default function Home({ data }) {
-  // console.log(data.allData);
+  console.log(data.allData);
   let countriesData = data.allData;
   const [country, setCountries] = useState(countriesData);
-  // searchFiled  function >>
   const [searchField, setSearchField] = useState("");
+  const [region, setRegion] = useState("");
+  // Search and searchByReagion  Function >>
   const filterCountries = country.filter((country) =>
-    country.name.toLowerCase().includes(searchField.toLocaleLowerCase())
+    searchField
+      ? country.name.toLowerCase().includes(searchField.toLocaleLowerCase())
+      : country.region.toLowerCase().includes(region.toLocaleLowerCase())
   );
-  // serchByRegion function
-  const [searchByRegion, setSearchByRegion] = useState("");
-  const filterSearchByRegion = country.filter((country) => country.region);
 
   return (
-    <div className="">
+    <>
       <Head>
         <title>NextJs-rest-countries-api</title>
         <link rel="icon" href="/favicon.ico" />
@@ -29,17 +28,16 @@ export default function Home({ data }) {
           rel="stylesheet"
         />
       </Head>
-      <div className=" dark:bg-gray-400">
-        <Navbar />
-        <SearchAndListBox
+      <main>
+        <SearchBox
           apiData={data}
           search={(e) => setSearchField(e.target.value)}
-          searchByRegion={(e) => setSearchByRegion(e.target.value)}
+          searchByRegion={(e) => setRegion(e.target.value)}
+          // searchByRegion={(e) => setRegion(e.target.options.value)}
         />
         <Countries countries={filterCountries} />
-        {/* <CartFullPage /> */}
-      </div>
-    </div>
+      </main>
+    </>
   );
 }
 
