@@ -27,7 +27,7 @@ function SearchBox({ search, searchByRegion }) {
         {/* <RegionSelect /> */}
         <div>
           <select
-            className="form-select w-48 py-3 px-4 sm:py-4 sm:px-6  shadow-md rounded-md border-none outline-none dark:bg-gray-700 cursor-pointer font-semibold"
+            className="form-select w-48 py-3 px-4 sm:py-4 sm:px-6  shadow-md rounded-md border-none outline-none dark:bg-gray-700 cursor-pointer font-semibold "
             onChange={searchByRegion}
           >
             <option value="" className={optionStyling}>

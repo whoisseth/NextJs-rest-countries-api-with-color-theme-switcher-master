@@ -6,7 +6,7 @@ import { getCurateData } from "./api/api";
 import React, { useState } from "react";
 
 export default function Home({ data }) {
-  console.log(data.allData);
+  // console.log(data.allData);
   let countriesData = data.allData;
   const [country, setCountries] = useState(countriesData);
   const [searchField, setSearchField] = useState("");

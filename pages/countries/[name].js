@@ -30,7 +30,7 @@ export default function CartFullPage({ data }) {
       {/* <button onClick={() => router.back()}> */}
       <div
         onClick={() => router.back()}
-        className="ml-14 mt-8 px-6  py-1 inline-block rounded shadow font-semibold  hover:shadow-xl"
+        className="ml-14 mt-8 px-6  py-1 inline-block rounded shadow font-semibold  hover:shadow-xl cursor-pointer"
       >
         <ArrowLeftIcon className="w-4 h-4  inline-block mr-2 " />
         <span className="text-gray-600"> Back </span>
