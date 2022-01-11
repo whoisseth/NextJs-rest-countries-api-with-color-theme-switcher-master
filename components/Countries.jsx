@@ -14,9 +14,9 @@ function Countries({ countries }) {
       <div
         style={{ minHeight: "1000px" }}
         ref={observe}
-        className="  px-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center gap-16  "
+        className='  px-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center gap-16  z-30 '
       >
-        {countries.map((data) => (
+        {countries.map(data => (
           <div key={data.alpha3Code}>
             <Link href={`/countries/${data.alpha3Code}`}>
               <a>
