@@ -63,8 +63,8 @@ export default function CartFullPage({
             // zoom={7}
             // pitch={50}
             pitch={0}
-            // MapStyle={lightMap}
-            MapStyle={darkMap}
+            MapStyle={lightMap}
+            // MapStyle={darkMap}
           />
         </div>
       </div>
