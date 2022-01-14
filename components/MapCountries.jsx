@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
 import { BiCurrentLocation } from "react-icons/bi";
+// import { IoLocation } from "react-icons/io";
+import { HiLocationMarker}  from 'react-icons/hi'
 function MapCountries({ cLat, cLong, zoom, pitch, MapStyle }) {
   const [lat, lang, zMap] = [cLat, cLong, zoom];
 
@@ -30,16 +32,14 @@ function MapCountries({ cLat, cLong, zoom, pitch, MapStyle }) {
         <Marker
           latitude={lat}
           longitude={lang}
-          className=' fill-blue-400'
+          className=' fill-green-400'
           offsetTop={(-viewport.zoom * 5) / 2}
           // offsetTop={(-viewport.zoom * 10) / 2}
         >
-          <BiCurrentLocation
-          // height={15}
-          // width={15}
-          // height={viewport.zoom * 5}
-          // width={viewport.zoom * 5}
-          />
+          {/* <BiCurrentLocation /> */}
+          {/* <IoLocation /> */}
+          {/* <HiLocationMarker className=" fill-red-400 h-10 w-10"  /> */}
+          <img src="https://cdn1.iconfinder.com/data/icons/social-messaging-ui-color/254000/67-512.png"  className="h-10 w-10" alt="" />
         </Marker>
       </ReactMapGL>
     </div>
