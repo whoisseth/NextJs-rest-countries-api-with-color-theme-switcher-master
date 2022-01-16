@@ -24,7 +24,7 @@ function MapCountries({ cLat, cLong, zoom, pitch, MapStyle }) {
           "pk.eyJ1IjoidXRrYXJzaHNldGgiLCJhIjoiY2t5Y3JxZzhsMHNnMDJ4bzh1azNoYmh2ciJ9.-lfaCZ_sD5EsSRdsOyKOyQ"
         }
         mapStyle={MapStyle}
-        width='80rem'
+        width='100vw'
         height='90vh'
         className='border-md overflow-hidden'
         {...viewport}
