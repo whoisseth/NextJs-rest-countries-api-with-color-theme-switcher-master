@@ -88,8 +88,7 @@ export default function CartFullPage({ apidata, location, live }) {
           <MapCountries
             cLat={cLat}
             cLong={cLong}
-            zoom={8}
-            // pitch={50}
+            zoom={6}
             pitch={0}
             // MapStyle={lightMap}
             MapStyle={theme === "light" ? lightMap : darkMap}
