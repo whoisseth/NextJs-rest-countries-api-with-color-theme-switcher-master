@@ -1,33 +1,59 @@
 import Head from "next/head";
 import { ArrowLeftIcon } from "@heroicons/react/outline";
-// import React, { useState, useEffect } from "react";
-import { getCountryDataByName } from "../api/api";
+import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
+import { useState } from "react";
+import { geolocated } from "react-geolocated";
+
+import { BsArrowUpShort } from "react-icons/bs";
+
 import MapCountries from "../../components/MapCountries";
-// import { apiData } from "./api/api";
-import { apiData } from "../api/api";
 
-export default function CartFullPage({
-  apidata,
-  apiDataName,
-  location,
-  // allCounrtydata,
-}) {
+export default function CartFullPage({ apidata, location, live }) {
+  // change them of map
+  const { theme, setTheme } = useTheme();
+  console.log(theme);
+  // change them of map End
+
+  // scroll to top
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+  // scroll to top End
+  const [state, setstate] = useState(null);
+  const [currentLocation, setCurrentLocation] = useState(false);
+
+  function getCurrentLocation() {}
+  // getCurrentLocation();
+  // Consoling
+  // console.log(currentLat);
+  // console.log(live);
+  console.log(currentLocation);
   console.log(apidata);
-  console.log(apiDataName);
-  // console.log(location);
+  console.log(location);
+  // consoling End
 
-  //
+  //testing
+  // try {
+  //   const cLat = currentLocation ? location.features[0].center[1] : currentLat;
+  //   const cLong = currentLocation ? location.features[0].center[0] : currentLng;
+  //   console.log(cLat, cLong);
+  // } catch (error) {
+  //   console.log(error);
+  // }
+
+  // working
   const cLat = location.features[0].center[1];
   const cLong = location.features[0].center[0];
-  //
+
   const data = apidata[0];
   const countNativeName = Object.keys(data.name.nativeName).length;
   const NativeName = countNativeName >= 2 ? true : false;
   const router = useRouter();
 
-  // console.log(apidata[0]);
-  // styling
   const TextGray = " text-gray-500 font-semibold";
   const FontSemibold = "font-semibold  ";
   const lightMap = "mapbox://styles/mapbox/streets-v11";
@@ -43,29 +69,34 @@ export default function CartFullPage({
           rel='stylesheet'
         />
       </Head>
-      <div className=' mx-7 lg:mx-14'>
-        <BackButton />
-        <div className='  mt-8 flex flex-col items-center  lg:flex-row md:flex gap-4 lg:gap-12   overflow-hidden  '>
-          <CountryImage />
-          <div className='  '>
-            <h1 className='font-bold text-3xl  '> {data.name.common} </h1>
-            <div className='grid grid-cols-1 md:grid-cols-2  md:flex md:mt-5 md:gap-4      md:text-xl   '>
-              <LeftSideData />
-              <RightSideData />
+      <div>
+        <div className=' mx-7 lg:mx-14'>
+          <BackButton />
+          <div className='  mt-8 flex flex-col items-center  lg:flex-row md:flex gap-4 lg:gap-12   overflow-hidden  '>
+            <CountryImage />
+            <div className='  '>
+              <h1 className='font-bold text-3xl  '> {data.name.common} </h1>
+              <div className='grid grid-cols-1 md:grid-cols-2  md:flex md:mt-5 md:gap-4      md:text-xl   '>
+                <LeftSideData />
+                <RightSideData />
+              </div>
             </div>
           </div>
+          <div></div>
         </div>
-        <div className=' flex justify-center my-8'>
+        <div className='  flex justify-center mt-14 my-8 m-4 border rounded-xl shadow-2xl border-gray-500'>
           <MapCountries
             cLat={cLat}
             cLong={cLong}
-            zoom={4}
-            // zoom={7}
+            zoom={8}
             // pitch={50}
             pitch={0}
-            MapStyle={lightMap}
-            // MapStyle={darkMap}
+            // MapStyle={lightMap}
+            MapStyle={theme === "light" ? lightMap : darkMap}
           />
+        </div>
+        <div className=' absolute right-10 bottom-[-63rem] md:bottom-[-50rem] align-right inline-block rounded-full cursor-pointer  bg-gray-500 text-3xl'>
+          <BsArrowUpShort onClick={() => scrollToTop()} />
         </div>
       </div>
     </>
@@ -203,56 +234,48 @@ export default function CartFullPage({
   }
 }
 
-// data fetchin
+// test
+export const getCountryDataByName = async name => {
+  const path = "https://restcountries.com/v3.1";
 
-// testing
-// export const getStaticPaths = async () => {
-//   const res = await fetch(`https://restcountries.com/v3.1/all`);
-//   const data = await res.json();
-//   const countryNameApi = apidata[0].name.common;
-//   const locationUrl = await fetch(
-//     `https://api.mapbox.com/geocoding/v5/mapbox.places/${countryNameApi}.json?limit=2&access_token=pk.eyJ1IjoidXRrYXJzaHNldGgiLCJhIjoiY2t5Y2VxaHJ0MG9weTJvbjBmYXR5a2VwMiJ9.GqGwztQQ9gHMrcivHTyTcw`
-//   );
-//   const location = await locationUrl.json();
-//   const paths = data.map(country => {
-//     return {
-//       params: { id: country.name.common, location },
-//     };
-//   });
-
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// };
-
-// export async function getStaticProps({ params }) {
-//   // https://restcountries.com/v3.1/name/peru
-//   const res = await fetch(`https://restcountries.com/v3.1/name/${params.id}`);
-//   const data = await res.json();
-//   return {
-//     props: { country: data },
-//   };
-// }
+  const res = await fetch(`${path}/name/${name}`);
+  const responseJson = await res.json();
+  return responseJson;
+};
+// test end
 
 // working
 
 export async function getServerSideProps({ params }) {
-  // const allCounrtydata = await apiData();
+  // fetching location data
   const apidata = await getCountryDataByName(params.name);
   const apiDataName = apidata[0].name.common;
-  const locationUrl = await fetch(
-    `https://api.mapbox.com/geocoding/v5/mapbox.places/${apiDataName}.json?limit=2&access_token=pk.eyJ1IjoidXRrYXJzaHNldGgiLCJhIjoiY2t5Y2VxaHJ0MG9weTJvbjBmYXR5a2VwMiJ9.GqGwztQQ9gHMrcivHTyTcw`
-  );
+  // fetching location data end /*
 
+  // fetching location  lan and lng
+  const apiKey =
+    "pk.eyJ1IjoidXRrYXJzaHNldGgiLCJhIjoiY2t5Y3JxZzhsMHNnMDJ4bzh1azNoYmh2ciJ9.-lfaCZ_sD5EsSRdsOyKOyQ"; // api key of Mapbox
+  const locationUrl = await fetch(
+    `https://api.mapbox.com/geocoding/v5/mapbox.places/${apiDataName}.json?limit=2&access_token=${apiKey}`
+  );
   const location = await locationUrl.json();
+  // fetching location  lan and lng End /*
+
+  // if ("geolocation" in navigator) {
+  //   const live = navigator.geolocation.watchPosition(function (position) {
+  //     console.log({
+  //       lat: position.coords.latitude,
+  //       lng: position.coords.longitude,
+  //     });
+  //   });
+  // }
 
   return {
     props: {
       apidata,
       apiDataName,
       location,
-      // allCounrtydata,
+      // live,
     },
   };
 }

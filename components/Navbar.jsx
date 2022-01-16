@@ -12,7 +12,7 @@ function Navbar() {
   return (
     <>
       <div
-        className={`font nav  z-50   flex w-full  shadow-xl justify-between px-8  md:px-14 py-5  items-center mb-8    `}
+        className={`font nav  z-50   flex w-full  shadow-xl justify-between px-8  md:px-14 py-5  items-center mb-8`}
       >
         <Link href={"/"}>
           <a>
