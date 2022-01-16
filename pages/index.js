@@ -2,8 +2,6 @@ import Countries from "../components/Countries";
 import SearchBox from "../components/SearchBox";
 import React, { useState } from "react";
 import { BsArrowUpShort } from "react-icons/bs";
-import useGeoLocation from "../components/useGeolocation";
-import GetLocation from "../components/getLocation";
 
 export default function Home({ data }) {
   console.log(data);

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ReactMapGL, { Marker, GeolocateControl } from "react-map-gl";
+import ReactMapGL, { Marker } from "react-map-gl";
 
 // const geolocateControlStyle = {
 //   right: 10,

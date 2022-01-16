@@ -81,13 +81,13 @@ export default function CartFullPage({ apidata, location, live }) {
           </div>
           <div></div>
         </div>
-        {/* <button
+        <button
           className='rounded-md  text-base font-semibold mx-8 my-8 border border-2 border-gray-300  shadow-2xl  py-2 px-4 hover:opacity-50'
           onClick={toggle}
         >
           Get &nbsp;{state ? "Your " : "Map "} Location
-        </button> */}
-        <div> not working</div>
+        </button>
+        {/* <div> not working</div> */}
         <div className='  flex justify-center mt-0 my-8 m-4 border rounded-xl shadow-2xl border-gray-500'>
           <MapCountries
             cLat={state ? cLat : currtLat}
