@@ -3,8 +3,7 @@ import { ArrowLeftIcon } from "@heroicons/react/outline";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { geolocated } from "react-geolocated";
-
+import useGeoLocation from "../../components/useGeolocation";
 import { BsArrowUpShort } from "react-icons/bs";
 
 import MapCountries from "../../components/MapCountries";
@@ -23,31 +22,29 @@ export default function CartFullPage({ apidata, location, live }) {
     });
   };
   // scroll to top End
-  const [state, setstate] = useState(null);
-  const [currentLocation, setCurrentLocation] = useState(false);
 
-  function getCurrentLocation() {}
-  // getCurrentLocation();
-  // Consoling
-  // console.log(currentLat);
-  // console.log(live);
+  // toggel langitude and longtude
+  const currentLocation = useGeoLocation();
   console.log(currentLocation);
+  const [state, setstate] = useState(true);
+  function toggle() {
+    setstate(!state);
+  }
+  console.log(state);
+  const [currtLat, currtLng] = [currentLocation.lat, currentLocation.lng];
+  console.log(currtLat, "--", currtLng);
+  // toggel langitude and longtude  end /*
+
+  // consoling
   console.log(apidata);
   console.log(location);
   // consoling End
 
-  //testing
-  // try {
-  //   const cLat = currentLocation ? location.features[0].center[1] : currentLat;
-  //   const cLong = currentLocation ? location.features[0].center[0] : currentLng;
-  //   console.log(cLat, cLong);
-  // } catch (error) {
-  //   console.log(error);
-  // }
-
   // working
   const cLat = location.features[0].center[1];
   const cLong = location.features[0].center[0];
+  console.log(cLat);
+  console.log(cLong);
 
   const data = apidata[0];
   const countNativeName = Object.keys(data.name.nativeName).length;
@@ -84,11 +81,20 @@ export default function CartFullPage({ apidata, location, live }) {
           </div>
           <div></div>
         </div>
-        <div className='  flex justify-center mt-14 my-8 m-4 border rounded-xl shadow-2xl border-gray-500'>
+        <button
+          className='rounded-md  text-base font-semibold mx-8 my-8 border border-2 border-gray-300  shadow-2xl  py-2 px-4 hover:opacity-50'
+          onClick={toggle}
+        >
+          Get &nbsp;{state ? "Your " : "Map "} Location
+        </button>
+        <div className='  flex justify-center mt-0 my-8 m-4 border rounded-xl shadow-2xl border-gray-500'>
           <MapCountries
-            cLat={cLat}
-            cLong={cLong}
-            zoom={6}
+            cLat={state ? cLat : currtLat}
+            cLong={state ? cLong : currtLng}
+            // cLat={cLat}
+            // cLong={cLong}
+            // zoom={6}
+            zoom={1}
             pitch={0}
             // MapStyle={lightMap}
             MapStyle={theme === "light" ? lightMap : darkMap}

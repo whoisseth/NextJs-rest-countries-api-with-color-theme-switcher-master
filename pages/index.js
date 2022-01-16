@@ -2,14 +2,8 @@ import Countries from "../components/Countries";
 import SearchBox from "../components/SearchBox";
 import React, { useState } from "react";
 import { BsArrowUpShort } from "react-icons/bs";
-
-// map
-const location = {
-  address: "1600 Amphitheatre Parkway, Mountain View, california.",
-  lat: 37.42216,
-  lng: -122.08427,
-};
-// map end
+import useGeoLocation from "../components/useGeolocation";
+import GetLocation from "../components/getLocation";
 
 export default function Home({ data }) {
   console.log(data);
@@ -44,6 +38,7 @@ export default function Home({ data }) {
             searchByRegion={e => setRegion(e.target.value)}
           />
           <Countries countries={filterCountries} />
+
           {/* <div className='fixed  text-3xl  bottom-10  bg-gray-400 opacity-40 hover:opacity-75 rounded-full  cursor-pointer min-h-screen:hidden -z-50  left-1/2 transform -translate-x-1/2 '> */}
           <div className=' fixed right-10  align-right bottom-10 inline-block rounded-full cursor-pointer  bg-gray-500 text-3xl'>
             <BsArrowUpShort onClick={() => scrollToTop()} />
