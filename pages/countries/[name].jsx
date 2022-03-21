@@ -1,46 +1,23 @@
 import Head from "next/head";
 import { ArrowLeftIcon } from "@heroicons/react/outline";
 import { useTheme } from "next-themes";
-import { useRouter } from "next/router";
-import { useState } from "react";
-import useGeoLocation from "../../components/useGeolocation";
-import { BsArrowUpShort } from "react-icons/bs";
+// import { useRouter } from "next/router";
 
 import MapCountries from "../../components/MapCountries";
+import ScrollToTop from "../../components/ScrollToTop";
+import Link from "next/dist/client/link";
 
 export default function CartFullPage({ apidata, location, live }) {
   // change them of map
   const { theme, setTheme } = useTheme();
   console.log(theme);
-  // change them of map End
-
-  // scroll to top
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-  // scroll to top End
-
-  // toggel langitude and longtude
-  const currentLocation = useGeoLocation();
-  console.log(currentLocation);
-  const [state, setstate] = useState(true);
-  function toggle() {
-    setstate(!state);
-  }
-  console.log(state);
-  const [currtLat, currtLng] = [currentLocation.lat, currentLocation.lng];
-  console.log(currtLat, "--", currtLng);
-  // toggel langitude and longtude  end /*
+  
 
   // consoling
-  console.log(apidata);
-  console.log(location);
-  // consoling End
+  // console.log(apidata);
+  // console.log(location);
 
-  // working
+  // assigning location 
   const cLat = location.features[0].center[1];
   const cLong = location.features[0].center[0];
   console.log(cLat);
@@ -49,8 +26,7 @@ export default function CartFullPage({ apidata, location, live }) {
   const data = apidata[0];
   const countNativeName = Object.keys(data.name.nativeName).length;
   const NativeName = countNativeName >= 2 ? true : false;
-  const router = useRouter();
-
+// css
   const TextGray = " text-gray-500 font-semibold";
   const FontSemibold = "font-semibold  ";
   const lightMap = "mapbox://styles/mapbox/streets-v11";
@@ -59,8 +35,7 @@ export default function CartFullPage({ apidata, location, live }) {
   return (
     <>
       <Head>
-        <title>NextJs-rest-countries-api</title>
-        <link rel='icon' href='/favicon.ico' />
+        <title>{data.name.common}</title>
         <link
           href='https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap'
           rel='stylesheet'
@@ -69,9 +44,9 @@ export default function CartFullPage({ apidata, location, live }) {
       <div>
         <div className=' mx-7 lg:mx-14'>
           <BackButton />
-          <div className='  mt-8 flex flex-col items-center  lg:flex-row md:flex gap-4 lg:gap-12   overflow-hidden  '>
+          <div className='mt-8 flex flex-col items-center  lg:flex-row md:flex gap-4 lg:gap-12   overflow-hidden'>
             <CountryImage />
-            <div className='  '>
+            <div>
               <h1 className='font-bold text-3xl  '> {data.name.common} </h1>
               <div className='grid grid-cols-1 md:grid-cols-2  md:flex md:mt-5 md:gap-4      md:text-xl   '>
                 <LeftSideData />
@@ -81,19 +56,11 @@ export default function CartFullPage({ apidata, location, live }) {
           </div>
           <div></div>
         </div>
-        <button
-          className='rounded-md  text-base font-semibold mx-8 my-8 border border-2 border-gray-300  shadow-2xl  py-2 px-4 hover:opacity-50'
-          onClick={toggle}
-        >
-          Get &nbsp;{state ? "Your " : "Map "} Location
-        </button>
-        {/* <div> not working</div> */}
-        <div className='  flex justify-center mt-0 my-8 m-4 border rounded-xl shadow-2xl border-gray-500'>
+
+        <div className='  flex justify-center mt-5 my-8  mx-8 h-[70vh]  md:h-full md:mx-16 border rounded-xl shadow-2xl border-gray-500'>
           <MapCountries
-            cLat={state ? cLat : currtLat}
-            cLong={state ? cLong : currtLng}
-            // cLat={cLat}
-            // cLong={cLong}
+            cLat={cLat}
+            cLong={cLong}
             // zoom={6}
             zoom={1}
             pitch={0}
@@ -102,9 +69,7 @@ export default function CartFullPage({ apidata, location, live }) {
             // add dark mode
           />
         </div>
-        <div className=' absolute right-10 bottom-[-63rem] md:bottom-[-50rem] align-right inline-block rounded-full cursor-pointer  bg-gray-500 text-3xl'>
-          <BsArrowUpShort onClick={() => scrollToTop()} />
-        </div>
+        <ScrollToTop />
       </div>
     </>
   );
@@ -114,13 +79,13 @@ export default function CartFullPage({ apidata, location, live }) {
 
   function BackButton() {
     return (
-      <div
-        onClick={() => router.back()}
-        className=' mt-8   px-6  py-2 inline-block rounded shadow font-semibold  hover:shadow-2xl cursor-pointer hover:opacity-75'
-      >
-        <ArrowLeftIcon className='w-4 h-4  inline-block mr-2 ' />
-        <span className='text-gray-600'> Back </span>
-      </div>
+      //  <Link href='/'></Link>
+      <Link href='/'>
+        <a  className=' mt-8   px-6  py-2 inline-block rounded shadow font-semibold  hover:shadow-2xl cursor-pointer hover:opacity-75 border-2'>
+          <ArrowLeftIcon className='w-4 h-4  inline-block mr-2 ' />
+          <span className='text-gray-600'> Back </span>
+        </a>
+       </Link>
     );
   }
   //
@@ -230,7 +195,7 @@ export default function CartFullPage({ apidata, location, live }) {
       <div>
         <iframe
           src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224090.76384402343!2d76.95317893881995!3d28.64719476591555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2s
-          Pakistan
+          
           !5e0!3m2!1sen!2sin!4v1642064020834!5m2!1sen!2sin'
           width={600}
           height={450}
@@ -241,7 +206,6 @@ export default function CartFullPage({ apidata, location, live }) {
   }
 }
 
-// test
 export const getCountryDataByName = async name => {
   const path = "https://restcountries.com/v3.1";
 
@@ -249,15 +213,11 @@ export const getCountryDataByName = async name => {
   const responseJson = await res.json();
   return responseJson;
 };
-// test end
-
-// working
 
 export async function getServerSideProps({ params }) {
   // fetching location data
   const apidata = await getCountryDataByName(params.name);
   const apiDataName = apidata[0].name.common;
-  // fetching location data end /*
 
   // fetching location  lan and lng
   const apiKey =
@@ -266,23 +226,12 @@ export async function getServerSideProps({ params }) {
     `https://api.mapbox.com/geocoding/v5/mapbox.places/${apiDataName}.json?limit=2&access_token=${apiKey}`
   );
   const location = await locationUrl.json();
-  // fetching location  lan and lng End /*
-
-  // if ("geolocation" in navigator) {
-  //   const live = navigator.geolocation.watchPosition(function (position) {
-  //     console.log({
-  //       lat: position.coords.latitude,
-  //       lng: position.coords.longitude,
-  //     });
-  //   });
-  // }
 
   return {
     props: {
       apidata,
       apiDataName,
       location,
-      // live,
     },
   };
 }

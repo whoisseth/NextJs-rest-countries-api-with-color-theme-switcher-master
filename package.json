@@ -19,7 +19,7 @@
         "google-map-react": "^2.1.10",
         "heroicons": "^1.0.5",
         "iconify": "^1.4.0",
-        "lint": "^0.7.0",
+        "lint": "^1.1.2",
         "next": "^12.0.8",
         "next-themes": "^0.0.15",
         "react": "^17.0.2",

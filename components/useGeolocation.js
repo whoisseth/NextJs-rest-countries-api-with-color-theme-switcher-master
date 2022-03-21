@@ -32,7 +32,7 @@ const useGeoLocation = () => {
                 lng: 77.22951166768763,
             },
         });
-        alert("Please on location this may not show correct location ");
+        // alert("Please on location this may not show correct location ");
     };
 
     useEffect(() => {

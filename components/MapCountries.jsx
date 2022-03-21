@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
 
-// const geolocateControlStyle = {
-//   right: 10,
-//   top: 10,
-// };
+
 function MapCountries({ cLat, cLong, zoom, pitch, MapStyle }) {
   const [lat, lang, zMap] = [cLat, cLong, zoom];
-  // const [btn, setBtn] = useState(false);
 
   let [viewport, setViewport] = useState({
     latitude: lat,
@@ -17,7 +13,7 @@ function MapCountries({ cLat, cLong, zoom, pitch, MapStyle }) {
   });
   return (
     <div className=' shadow-md rounded-xl overflow-hidden  m-2 '>
-      {/* <button onClick={setBtn}> Show current location</button> */}
+      
 
       <ReactMapGL
         mapboxApiAccessToken={
@@ -25,17 +21,13 @@ function MapCountries({ cLat, cLong, zoom, pitch, MapStyle }) {
         }
         mapStyle={MapStyle}
         width='100vw'
+        // width='100%'
         height='90vh'
         className='border-md overflow-hidden'
         {...viewport}
         onViewportChange={newView => setViewport(newView)}
       >
-        {/* <GeolocateControl
-          style={geolocateControlStyle}
-          positionOptions={{ enableHighAccuracy: true }}
-          trackUserLocation={true}
-          auto
-        /> */}
+       
         <Marker
           latitude={lat}
           longitude={lang}

@@ -1,6 +1,7 @@
 module.exports = {
     images: {
-        // loader: 'utkarsh',
         domains: ['flagcdn.com'],
+        // domains:['upload.wikimedia.org']
+
     },
 }

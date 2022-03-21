@@ -2,7 +2,6 @@ import Link from "next/link";
 import useInView from "react-cool-inview";
 import dynamic from "next/dynamic";
 const Cart = dynamic(() => import("./Cart"));
-import { Wrap } from "@chakra-ui/react";
 
 function Countries({ countries }) {
   // console.log(countries.data);
@@ -12,12 +11,6 @@ function Countries({ countries }) {
 
   return (
     <>
-      {/* <div ref={observe}> */}
-      {/* <div
-        style={{ minHeight: "1000px" }}
-        ref={observe}
-        className='containerGrid  px-14 grid grid-cols-4  auto-cols-auto justify-items-center gap-8  z-30 '
-      > */}
       <div
         style={{ minHeight: "1000px" }}
         ref={observe}
