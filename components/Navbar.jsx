@@ -2,7 +2,6 @@ import React from "react";
 import { BsFillMoonFill } from "react-icons/bs";
 import { useTheme } from "next-themes";
 import Link from "next/link";
-// import "../style/navbar.css";
 
 function Navbar() {
   const { theme, setTheme } = useTheme();
@@ -28,7 +27,7 @@ function Navbar() {
           <BsFillMoonFill className={`${smFont}  ${lgFont} `} />
 
           <span
-            className={` ${smFont} ${lgFont}  ml-1  font-semibold inline-block hidden md:block  `}
+            className={` ${smFont} ${lgFont}  ml-1  font-semibold  hidden md:block  `}
           >
             {theme === "light" ? "Dark " : "Light "}
             Mode

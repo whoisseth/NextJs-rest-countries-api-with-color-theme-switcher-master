@@ -2,40 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 @layer base {
-    html {
-        @apply font-Nunito
-    }
+  html {
+    @apply font-Nunito;
+  }
 }
 
 .containerGrid {
-    /* background-color: lightblue; */
+  /* background-color: lightblue; */
 }
 
 @media only screen and (max-width: 84rem) {
-    .containerGrid {
-        /* background-color: lightblue; */
-        display: grid;
-        /* grid-template-columns: 1fr 1fr 1fr; */
-    }
+  .containerGrid {
+    /* background-color: lightblue; */
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+  }
+}
+@media only screen and (max-height: 101vh) {
+  .hide-arrow {
+    /* @apply hidden  */
+    @apply fixed;
+  }
+}
+@media only screen and (min-height: 101vh) {
+  .hide-arrow {
+    @apply fixed;
+  }
 }
 
-
-/* html {
-    /* font-family: 'Nunito Sans', sans-serif; */
-
-
-/*   font-family: 'Nunito Sans', sans-serif;
-}  */
-
-
-/* theme: {
-    extend: {
-        fontFamily: {
-            Rampart: ["Rampart One", "cursive"],
-        }
-        ,
-    }
-    ,
+.nav {
+  @apply sticky top-0; 
 }
-
-, */
