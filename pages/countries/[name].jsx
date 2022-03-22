@@ -7,17 +7,16 @@ import MapCountries from "../../components/MapCountries";
 import ScrollToTop from "../../components/ScrollToTop";
 import Link from "next/dist/client/link";
 
-export default function CartFullPage({ apidata, location, live }) {
+export default function CartFullPage({ apidata, location }) {
   // change them of map
   const { theme, setTheme } = useTheme();
   console.log(theme);
-  
 
   // consoling
-  // console.log(apidata);
+  console.log(apidata);
   // console.log(location);
 
-  // assigning location 
+  // assigning location
   const cLat = location.features[0].center[1];
   const cLong = location.features[0].center[0];
   console.log(cLat);
@@ -26,7 +25,7 @@ export default function CartFullPage({ apidata, location, live }) {
   const data = apidata[0];
   const countNativeName = Object.keys(data.name.nativeName).length;
   const NativeName = countNativeName >= 2 ? true : false;
-// css
+  // css
   const TextGray = " text-gray-500 font-semibold";
   const FontSemibold = "font-semibold  ";
   const lightMap = "mapbox://styles/mapbox/streets-v11";
@@ -61,8 +60,8 @@ export default function CartFullPage({ apidata, location, live }) {
           <MapCountries
             cLat={cLat}
             cLong={cLong}
-            // zoom={6}
-            zoom={1}
+            zoom={4}
+            // zoom={1}
             pitch={0}
             // MapStyle={lightMap}
             MapStyle={theme === "light" ? lightMap : darkMap}
@@ -81,11 +80,11 @@ export default function CartFullPage({ apidata, location, live }) {
     return (
       //  <Link href='/'></Link>
       <Link href='/'>
-        <a  className=' mt-8   px-6  py-2 inline-block rounded shadow font-semibold  hover:shadow-2xl cursor-pointer hover:opacity-75 border-2'>
+        <a className=' mt-8   px-6  py-2 inline-block rounded shadow font-semibold  hover:shadow-2xl cursor-pointer hover:opacity-75 border-2'>
           <ArrowLeftIcon className='w-4 h-4  inline-block mr-2 ' />
           <span className='text-gray-600'> Back </span>
         </a>
-       </Link>
+      </Link>
     );
   }
   //
@@ -173,37 +172,24 @@ export default function CartFullPage({ apidata, location, live }) {
                 .join(", ")}
             </span>
           </div>
+          <CountryMap />
         </div>
-        {/* <CountryMap /> */}
       </div>
     );
   }
   function CountryMap() {
     return (
       <div className='flex'>
-        <div className={FontSemibold}>Maps :&nbsp; </div>
-        <di className=' "underline'>
-          <span className='underline'> Google Map ,</span>
-          <span className='underline'> OpenS Street Map</span>
-        </di>
+        <div className={FontSemibold}>
+          Maps <span className={TextGray}>: </span> &nbsp; &nbsp;{" "}
+        </div>
+          <Link href={data.maps.googleMaps}  >
+            <a target="_blank" className='underline text-blue-400 font-semibold'> Google Map </a>
+          </Link>
       </div>
     );
   }
-  //
-  function MapBox() {
-    return (
-      <div>
-        <iframe
-          src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224090.76384402343!2d76.95317893881995!3d28.64719476591555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2s
-          
-          !5e0!3m2!1sen!2sin!4v1642064020834!5m2!1sen!2sin'
-          width={600}
-          height={450}
-          loading='lazy'
-        />
-      </div>
-    );
-  }
+  
 }
 
 export const getCountryDataByName = async name => {

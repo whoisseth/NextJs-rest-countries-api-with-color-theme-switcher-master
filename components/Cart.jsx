@@ -6,7 +6,7 @@ function Cart({ imgAdd, countryName, population, capital, region }) {
   return (
     <>
      
-      <div className=' hover:scale-[1.02] ease-in-out duration-300 cursor-pointer rounded overflow-hidden shadow-xl'>
+      <div className='  cursor-pointer rounded overflow-hidden shadow-xl group'>
         <ImageCountry />
         <div className='pt-5 pl-5 pb-8 '>
           <div className='font-bold mb-4 text-2xl  w-[15rem]'>
@@ -20,7 +20,7 @@ function Cart({ imgAdd, countryName, population, capital, region }) {
   function ImageCountry() {
     return (
      
-      <div className='w-[18rem] md:w-[17rem] md:h-[10] h-[10.5rem]  overflow-hidden     '>
+      <div className='w-[18rem] md:w-[17rem] md:h-[10] h-[10.5rem]  overflow-hidden  group-hover:scale-110 transition ease-in-out duration-300    '>
         <img className=' w-[100%] h-[100%] object-cover' src={imgAdd} />
       </div>
     );
