@@ -23,11 +23,11 @@ export default function Home({ data }) {
   // for Smooth scroll
   
   return (
-    <>
+    <div className="dark:bg-red-200">
       <Head>
         <title>UtkWorld </title>
       </Head>
-      <main className='relative scroll-smooth '>
+      <main className=' scroll-smooth '>
         <SearchBox
           apiData={data}
           search={e => setSearchField(e.target.value)}
@@ -36,7 +36,7 @@ export default function Home({ data }) {
         <Countries countries={filterCountries} />
         <ScrollToTop />
       </main>
-    </>
+    </div>
   );
 }
 
