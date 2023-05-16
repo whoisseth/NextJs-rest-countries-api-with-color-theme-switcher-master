@@ -1,3 +1,5 @@
+/** @format */
+
 module.exports = {
   darkMode: "class",
   mode: "jit",
@@ -5,7 +7,7 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      Nunito: ["Nunito Sans", "sans-serif"],
+      Nunito: ["Nunito Sans", "sans-serif"]
     },
     screens: {
       sm: "640px",
@@ -24,12 +26,12 @@ module.exports = {
       "2xl": "1536px",
       // => @media (min-width: 1536px) { ... }
 
-      "3xl": "2000px",
+      "3xl": "2000px"
       // => @media (min-width: 1536px) { ... }
-    },
+    }
   },
   variants: {
-    extend: {},
+    extend: {}
   },
-  plugins: [],
+  plugins: []
 };
