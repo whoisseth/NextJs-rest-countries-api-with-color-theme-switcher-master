@@ -4,4 +4,5 @@ module.exports = {
         // domains:['upload.wikimedia.org']
 
     },
+    "presets": ["next/babel"]
 }
